@@ -12,8 +12,8 @@ Cherokee es un servidor web ligero español que supera en rendimiento en algunos
 node.js es un entorno Javascript muy eficiente en el back-end del servidor, basado en eventos. Utiliza el motor V8, desarrollado por Google. Es muy eficiente para cuando la cantidad de conexiones concurrentes es muy elevada, ya que no genera un hilo por cada conexión. Es necesario añadir módulos para que el servidor web empiece a funcionar, a diferencia de Apache o Ngin X.
 
 ## Referencias:
-* [Apache](http://www.digitallearning.es/blog/apache-servidor-web-configuracion-apache2-conf/ "Apache")
-* [Nginx](http://www.cristalab.com/blog/7-razones-para-usar-nginx-web-server-c112338l/ "Nginx")
-* [thttpd](https://sites.google.com/site/varrojos/thttpd "thttpd")
-* [Cherokee](http://elblogdepicodev.blogspot.com.es/2011/05/servidor-web-ligero-cherokee.html "Cherokee")
-* [node.js](http://www.netconsulting.es/blog/nodejs/ "node.js")
+1. [Apache](http://www.digitallearning.es/blog/apache-servidor-web-configuracion-apache2-conf/ "Apache")
+2. [Nginx](http://www.cristalab.com/blog/7-razones-para-usar-nginx-web-server-c112338l/ "Nginx")
+3. [thttpd](https://sites.google.com/site/varrojos/thttpd "thttpd")
+4. [Cherokee](http://elblogdepicodev.blogspot.com.es/2011/05/servidor-web-ligero-cherokee.html "Cherokee")
+5. [node.js](http://www.netconsulting.es/blog/nodejs/ "node.js")
