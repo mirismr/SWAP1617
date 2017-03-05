@@ -23,7 +23,7 @@ Y de balanceadores hardware:
 ### 3. Buscar productos comerciales para servidores de almacenamiento.
 * *Flytech*
 * *openstack*
-* *FreeNAS
+* *FreeNAS*
 * *ownCloud*
 
 ## Referencias:
