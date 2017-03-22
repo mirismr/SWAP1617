@@ -10,7 +10,7 @@
 |Disco              | Desconocido              | 144 TB             |
 |Precio ($)         | 75000-2000000            | 10000*10 = 100000  |
 
-El precio de la granja Web es estimado, ya que hay que comprar algunos componentes. En las referencias se ve el precio base del servidor y el de los componentes.
+El precio de la granja Web es estimado, ya que hay que comprar algunos componentes. En las referencias se ve el precio base del servidor y el de los componentes. Multiplicamos el precio por 10 para que las prestaciones sean equivalentes entre ambos sistemas.
 
 
 ## Referencias
