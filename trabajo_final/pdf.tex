@@ -213,15 +213,15 @@ Existen varios tipos de defensa contra estos ataques MITM, estas defensas emplea
 \section{Ejemplos prácticos de ataques cibernéticos}
 Para realizar los ataques, hemos usado el Sistema Operativo Kali Linux, el cual posee una serie de herramientas preinstaladas para la auditoría y seguridad de sistemas informáticos.
 \subsection{Ejemplo práctico ataque DoS}
-Para este ataque, hemos usado la herramienta para pentesting Metasploit. Ésta nos permite mandar muchas peticiones SYN (recordemos el triple handshaking de TCP) haciendo que el servidor reserve recursos para todas las peticiones y quedando a la espera porque nunca se enviará el \textit{ACK}. Usamos los comandos que se muestran en la siguiente figura \ref{fig:ddos1atack}:
+Para este ataque, hemos usado la herramienta para pentesting Metasploit. Ésta nos permite mandar muchas peticiones SYN (recordemos el triple handshaking de TCP) haciendo que el servidor reserve recursos para todas las peticiones y quedando a la espera porque nunca se enviará el \textit{ACK}. Usamos los comandos que se muestran en la siguiente figura \ref{fig:ddos1atack}.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.35]{images/ddos1.jpeg}
 \caption{Comandos Metasploit.} \label{fig:ddos1atack}
 \end{figure}
-El modulo \textit{auxiliary} contiene  herramientas externas como pueden ser escáners de vulnerabilidades, sniffers, etc. En este caso usaremos \textit{synflood}. Con \textit{set RHOST 192.168.1.236}, indicamos la ip de nuestra víctima. Por último, ``explotamos'' el ataque para que se haga efectivo.\\
+El módulo \textit{auxiliary} contiene  herramientas externas como pueden ser escáners de vulnerabilidades, sniffers, etc. En este caso usaremos \textit{synflood}. Con \textit{set RHOST 192.168.1.236}, indicamos la ip de nuestra víctima. Por último, ``explotamos'' el ataque para que se haga efectivo.\\
 El escenario del ataque es el siguiente:
-Hay un servidor \textit{ XAMPP}, en el sistema operativo Windows 10, cuya IP es 192.168.1.236, la cual suponemos en la misma red que nuestra máquina atacante. En la siguiente captura, podemos observar la página de inicio del servidor, pero cuando realizamos el ataque, la aplicación que nos permite configurar el servidor falla, y el servidor cae \ref{fig:ddos2atack}:
+Hay un servidor \textit{ XAMPP}, en el sistema operativo Windows 10, cuya IP es 192.168.1.236, la cual suponemos en la misma red que nuestra máquina atacante. En la siguiente captura, podemos observar la página de inicio del servidor, pero cuando realizamos el ataque, la aplicación que nos permite configurar el servidor falla, y el servidor cae \ref{fig:ddos2atack}.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.25]{images/ddos2.jpeg}
