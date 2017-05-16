@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{La seguridad 3}{}% 2
+\BOOKMARK [1][-]{section.3}{Amenazas 3}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Humanas}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Amenazas l\363gicas}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Amenazas f\355sicas}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Honeypots 4 5}{}% 7
+\BOOKMARK [1][-]{section.5}{Los ciberataques 12 13}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{DDoS o DoS 6 7}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{SQL Injection 11}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Ataque MITM \(Man In The Middle\) 10}{section.5}% 11
+\BOOKMARK [1][-]{section.6}{Ejemplos pr\341cticos de ataques cibern\351ticos}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Ejemplo pr\341ctico ataque DoS}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{Ejemplo pr\341ctico SQL Injection}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.3}{Ejemplo pr\341ctico ataque MITM}{section.6}% 15

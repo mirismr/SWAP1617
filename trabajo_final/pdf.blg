@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: pdf.aux
+The style file: plain.bst
+Database file #1: citas.bib
+Warning--to sort, need author or key in 3
+Warning--to sort, need author or key in 4
+Warning--to sort, need author or key in 5
+Warning--to sort, need author or key in 12
+Warning--to sort, need author or key in 13
+Warning--to sort, need author or key in 6
+Warning--to sort, need author or key in 7
+Warning--to sort, need author or key in 11
+Warning--to sort, need author or key in 1
+Warning--to sort, need author or key in 2
+Warning--to sort, need author or key in 8
+Warning--to sort, need author or key in 9
+Warning--to sort, need author or key in 10
+Warning--to sort, need author or key in 14
+You've used 14 entries,
+            2118 wiz_defined-function locations,
+            521 strings with 4862 characters,
+and the built_in function-call counts, 2108 in all, are:
+= -- 182
+> -- 14
+< -- 0
++ -- 14
+- -- 0
+* -- 72
+:= -- 207
+add.period$ -- 14
+call.type$ -- 14
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 98
+empty$ -- 323
+format.name$ -- 0
+if$ -- 533
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 0
+newline$ -- 45
+num.names$ -- 0
+pop$ -- 126
+preamble$ -- 1
+purify$ -- 28
+quote$ -- 0
+skip$ -- 125
+stack$ -- 0
+substring$ -- 70
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 14
+while$ -- 0
+width$ -- 16
+write$ -- 72
+(There were 14 warnings)

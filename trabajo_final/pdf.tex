@@ -1,0 +1,303 @@
+\documentclass[a4paper,titlepage,12pt]{article}
+
+%Comienzan las los paquetes
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage[spanish]{babel} 
+\usepackage[latin1]{inputenc}
+\usepackage{listings}
+\usepackage{amsmath, amssymb, latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{lettrine}
+\usepackage[T1]{fontenc}
+\usepackage{palatino} 
+\usepackage{type1ec}
+\usepackage{lmodern} 
+\usepackage{type1cm}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{lscape} 
+\usepackage{upgreek} % para poner letras griegas sin cursiva
+\usepackage{cancel} % para tachar
+\usepackage{mathdots} % para el comando \iddots
+\usepackage{mathrsfs} % para formato de letra
+\usepackage{stackrel} % para el comando \stackbin
+\usepackage{dsfont}
+\usepackage{verbatim}
+\usepackage{subfigure}
+\usepackage{url}
+\def\checkmark{\tikz\fill[scale=0.5](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\pagenumbering{arabic}
+
+
+\begin{document}
+
+
+
+\begin{titlepage}
+
+\begin{center}
+\vspace*{-1.18in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=9.7cm]{images/ugr.png}
+\end{center}
+\end{figure}
+\vspace*{0.20in}
+\textbf{\LARGE{Universidad de Granada}} \\
+\vspace{0.20in}
+\textbf{Escuela Técnica Superior de Ingenierí­a Informática y Telecomunicaciones}\\
+\textbf{Grado en Ingenierí­a Informática} \\
+\vspace*{0.30in}
+\textbf{Asignatura: Servidores Web de Altas Prestaciones} \\
+\vspace*{0.20in}
+\rule{90mm}{0.30mm}\\
+\vspace*{0.20in}
+\textbf{\huge{Seguridad en servidores y ciber-ataques}} \\
+\rule{90mm}{0.30mm}\\
+\vspace*{0.80in}
+\textbf{Autores: Mí­riam Mengí­bar Rodrí­guez}\\
+\textbf{Juan Anaya Ortiz}\\
+\vspace*{0.20in}
+\textbf{Granada, \today}
+\end{center}
+\end{titlepage}
+
+%--------------------------Indice----------------------
+\tableofcontents
+\cleardoublepage
+\clearpage{}
+%------------------------------------------------------
+
+%--------------------------Cuestion 1-----------------------------
+\section{Introducción}
+En la actualidad, la seguridad es un aspecto relevante en el ámbito de la informática, ya que cualquier sistema necesita protección para evitar que el contenido del mismo se vea comprometido. El diseño de un sistema requiere la incorporación de elementos que aporten seguridad al sistema, ya que debemos asegurar los recursos del sistema de forma que se utilicen de la manera en la que se planeo y que el acceso y/o modificación de la información solo sea posible a las personas que se encuentren acreditadas.
+
+Si consideramos la seguridad en cualquier máquina sencilla que pueda tener una persona, es cierto que se deben tomar precauciones, ya que, aunque a veces no nos demos cuenta, nuestra máquina posee datos personales (por ejemplo cuentas bancarias, DNI, números de tarjetas de crédito, etc). Pero en el ámbito de los servidores, este tema tendría que ser aún más importante si cabe, ya que los servidores, por lo general, están destinados a manejar grandes cantidades de datos personales y críticos de empresas y de sus clientes. Así pues, una vulneración del servidor haría que dichas empresas perdiesen grandes cantidades de dinero además del valor ético que supone que vulneren la privacidad de muchas personas.
+
+Por ello, surgen empresas destinadas a mantener y proteger la seguridad del resto de empresas. Pero ¿qué pasa con los usuarios estándares que no reciben esta protección? Por todos los motivos anteriores y más que pueden escaparse del ámbito de la asignatura, los informáticos jugamos un papel importante, pero la concienciación de la sociedad, tanto a nivel de usuarios estándares  como a nivel de empresas, debe comenzar en una etapa temprana, pues la mayoría de personas no conocen los riesgos que pueden suponer ciertas acciones y de lo que podemos encontrar en Internet.
+
+\section{La seguridad \cite{3}}
+La seguridad informática\cite{1} \cite{2} es una disciplina que se encarga de proteger la integridad y la privacidad de la información almacenada en un sistema informático. A decir verdad, no hay ningún algoritmo para conseguir la seguridad completa e impenetrable, así que solo trata de poner barreras que eviten la vulneración del sistema.\\
+
+La seguridad informática se dedica principalmente a proteger la confidencialidad, la integridad, no repudio, autenticación y la disponibilidad de la información. Estas características podemos describirlas como sigue:
+\begin{enumerate}
+\item \textbf{Disponibilidad:} capacidad de un servicio,de unos datos o de un sistema a ser accesible y utilizable por los usuarios o procesos autorizados cuando lo requieran.
+\item \textbf{Confidencialidad:} cualidad que debe poseer un documento o archivo para que éste solo se entienda de manera comprensible o sea leído por la persona o sistema que esté autorizado.
+\item \textbf{Integridad:} cualidad que posee un documento o archivo que no ha sido alterado y que además permite comprobar que no se ha producido manipulación alguna en el documento original.
+\item \textbf{Alta disponibilidad}: son sistemas que están disponibles las 24 horas al día, 7 días a la semana, 365 días al año.
+\item \textbf{Autenticación:} Es la situación en la cual se puede verificar que un documento ha sido elaborado o pertenece a quien el documento dice. La autenticación de los sistemas informático se realizan habitualmente mediante nombre y contraseña.
+\item \textbf{No repudio:} El no repudio es un servicio de seguridad estrechamente relacionado con la autenticación y que permite probar la participación de las partes en una comunicación. Puede existir repudio en el origen (el emisor no puede negar el envío porque el destinatario tiene pruebas del mismo el receptor recibe una prueba infalsificable del envío.) o de destino (el receptor no puede negar que recibió el mensaje porque el emisor tiene pruebas de la recepción.)
+\end{enumerate}
+
+\section{Amenazas \cite{3}}
+El sistema puede estar expuesto a una serie de amenazas que hace que perturbe su seguridad. Las podemos clasificar como sigue.
+\subsection{Humanas}
+Las personas pueden comprometer la seguridad del sistema por fallos humanos o por acciones intencionadas:
+\begin{enumerate}
+\item \textbf{Personal:} las personas pueden comprometer la seguridad del sistema por fallos humanos.
+\item \textbf{Hackers:} una persona que intenta tener acceso no autorizado a los recursos de la red con intención maliciosa o no.
+\item \textbf{Crackers:} es un término mas preciso para describir una persona que intenta obtener acceso no autorizado a los recursos de la red con intención maliciosa.
+\item \textbf{Intrusos remunerados:} se trata de personas con gran experiencia en problemas de seguridad y un amplio conocimiento del sistema que son pagados por una tercera parte para vulnerar el sistema.
+\end{enumerate}
+\subsection{Amenazas lógicas}
+Son aquellas que son a causa del software que usemos o que usen terceras personas:
+\begin{enumerate}
+\item \textbf{Software incorrecto:} A los errores de programación en el software se les llama \textit{Bugs} y a los programas para aprovechar uno de estos fallos se les llama \textit{Exploits}.
+\item \textbf{Herramientas de seguridad:} Cualquier herramienta de seguridad representa un arma de doble filo de la misma forma que un administrador las utiliza para detectar y solucionar fallos en sus sistemas o la subred completa un intruso las puede utilizar para detectar esos mismos fallos y aprovecharlos para atacar los equipos.
+\item \textbf{Puertas traseras:} Son parte de código de ciertos programas que permanecen sin hacer ninguna función hasta que son activadas. En ese punto la función que realizan no es la original del programa si no una acción perjudicial.
+\item \textbf{Canales cubiertos:} Son canales de comunicación que permiten a un proceso trasferir información de forma que viole la política de seguridad del sistema.
+\item Virus: Es una secuencia de código que se inserta en un fichero ejecutable de forma que cuando el archivo se ejecuta el virus también lo hace.
+\item \textbf{Gusanos:} Programa capaz de ejecutarse y propagarse por si mismo a través de redes, en ocasiones portando virus o aprovechando \textit{Bugs} de los sistemas a los que se conecta, para dañarlos. Son difíciles de programar, pero son muy dañinos.
+\item \textbf{Troyanos:} Su nombre es debido al famoso caballo de Troya, son instrucciones escondidas en un programa de forma que este parezca realizar las tareas que un usuario espera de el pero que realmente ejecuta funciones ocultas. Este programa no hace nada útil, simplemente se delimitan a reproducirse hasta que el número de copias acaba con los recursos del sistema.
+\end{enumerate}
+
+\subsection{Amenazas físicas}
+Estas se refieren a las amenazas que puede sufrir un sistema debido a robos, sabotajes, destrucción de sistemas, suministro eléctrico, condiciones atmosféricas, catástrofes naturales, etc.
+
+\section{Honeypots \cite{4} \cite{5}}
+Para intentar paliar alguna de estas amenazas, muchos expertos en seguridad hacen uso de los \textit{honeypots}. Un \textit{Honeypot} es el software o conjunto de ordenadores cuya intención es atraer a atacantes, simulando ser sistemas vulnerables o débiles a los ataques. Es una herramienta de seguridad informática utilizada para recoger información sobre los atacantes y sus técnicas. Los \textit{Honeypots} pueden distraer a los atacantes de las máquinas más importantes del sistema, y advertir rápidamente al administrador del sistema de un ataque, además de permitir un examen en profundidad del atacante, durante y después del ataque al \textit{Honeypot}.
+\\
+Actualmente existen multitud de herramientas libres que pueden ayudar en el despliegue de \textit{Honeypots} para este tipo de investigaciones o incluso, teniendo los conocimientos necesarios, desarrollar software personalizado. Algunas de estas herramientas se usan desde consola de comandos, siendo necesario analizar e interpretar los \textit{logs} que generan para saber que está ocurriendo, otras poseen un entorno gráfico desde donde poder visualizar los datos obtenidos.
+
+\section{Los ciberataques \cite{12} \cite{13}}
+A medida que evoluciona el entorno de las amenazas cibernéticas, también debe desarrollarse la protección frente a dichas amenazas. Con la aparición de los ataques dirigidos y las amenazas persistentes avanzadas, queda claro que es necesario utilizar un nuevo enfoque de seguridad cibernética. Las técnicas tradicionales simplemente ya no resultan adecuadas para proteger los datos frente a los ciberataques.\\
+Las amenazas persistentes avanzadas y los ataques dirigidos han demostrado su capacidad para penetrar en las defensas de seguridad estándares y permanecer ocultos durante meses mientras sustraen datos valiosos o llevan a cabo acciones destructivas. Muchas de las empresas en las que confía son algunos de los objetivos principales: instituciones financieras, organizaciones sanitarias y grandes minoristas, entre otros.\\
+En 2011, PC World detectó un aumento del 81\% en los ataques de hackers avanzados y dirigidos a equipos y, según los resultados de una investigación de Verizon en 2012, se alcanzó la asombrosa cifra de 855 incidentes de seguridad cibernética y 174 millones de registros atacados.\\
+
+A continuación vamos a describir los ataques más populares:
+\subsection{DDoS o DoS \cite{6} \cite{7}}
+El objetivo de un ataque \textit{DDoS (Distributed Denegation of Service)} es inhabilitar un servidor, un servicio o una infraestructura sobrecargando el ancho de banda del servidor o acaparando sus recursos hasta agotarlos. Durante un ataque \textit{DDoS}, se envían multitud de peticiones simultáneamente desde múltiples puntos de la red. La intensidad de este "fuego cruzado" desestabiliza el servicio o, aún peor, lo inhabilita. El \textit{DoS (Denegation of Service)}, es prácticamente lo mismo, solo que el ataque se realiza desde una única máquina, es decir, no es distribuido. Un esquema del ataque lo podemos observar en la figura \ref{fig:ddos1}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{images/ddos1.png}
+\caption{Ataque DDoS.} \label{fig:ddos1}
+\end{figure}
+Existen tres estrategias que pueden inhabilitar un sistema:
+\begin{enumerate}
+\item \textbf{ Ancho de banda:} Ataque que consiste en saturar la capacidad de la red del servidor, haciendo que sea imposible llegar a él.
+\item \textbf{Recursos:} Ataque que consiste en agotar los recursos del sistema de la máquina, impidiendo que esta pueda responder a las peticiones legítimas.
+\item \textbf{Explotación de fallos de software:} Categoría de ataque que explota fallos en el software que inhabilitan el equipo o toman su control.
+\end{enumerate}
+
+Basándonos en el modelo OSI, podemos encontrar que el ataque DDoS se puede hacer en diferentes capas. Se muestra en la imagen \ref{fig:ddos2}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{images/ddos2.png}
+\caption{Diferentes ataques en modelo OSI.} \label{fig:ddos2}
+\end{figure}
+Para detectar el ataque, podemos usar estudiar el flujo enviado por los routers. Se analiza ese resumen y se compara con posibles ataques anteriores. Si la comparación es positiva, se activaría el servicio de mitigación en pocos segundos. Esto se basa en los umbrales de tráfico en "paquetes por segundo" (pps, Kpps, Mpps, Gpps) o "bytes por segundo" (bps, Kbps, Mbps, Gbps), por ejemplo. Esta mitigación puede ser un poco delicada ya que debemos tener cuidado al elegir el umbral. Hay empresas que se dedican a ofrecer este tipo de servicios, como por ejemplo OVH. \\
+
+Pero si nos tenemos que encargar de la defensa de nuestra propio servidor, podemos seguir los siguientes consejos:
+\begin{enumerate}
+\item Un buen diseño de un servidor debe tener en cuenta que estos ataques se pueden producir, así que lo lógico es tener un servicio que monitorice la actividad del servidor, y cuando detecte una situación no usual, avise al administrador del servidor.
+\item También es importante escoger un umbral adecuado para nuestro servidor. Es decir, deberemos estudiar la actividad cotidiana de nuestro servidor para no elegir un valor ni muy bajo (podiendo confundirse con un ataque DDoS cuando solo es una pequeña subida en la cantidad de peticiones) ni un valor muy alto (permitiendo demasiadas peticiones de un posible ataque DDoS que, aunque no llegue a echar abajo nuestro servidor, consuma gran parte de sus recursos.)
+\item Además, interesa tener bien configurados todos los servicios de seguridad disponibles, como un cortafuegos, que permita el paso del tráfico únicamente que le interese a nuestro servidor. Lo ideal sería hacer uso de una DMZ (zona desmilitarizada).
+\item Finalmente, hay que prestar especial atención a los puertos que tenemos abiertos. Esto es que solo debemos tener los puertos abiertos de los servicios que estemos usando.
+\end{enumerate}
+
+En la referencia \cite{8}, se puede ver un ataque DDoS en tiempo real, y en la referencia \cite{9} se pueden ver los ataques en vivo de cualquier país del mundo.
+
+\subsection{SQL Injection \cite{11}}
+Consiste en la inserción de código SQL por medio de los datos de entrada 	desde la parte del cliente hacia la aplicación. Es decir, por medio de la 	inserción de este código el atacante puede modificar las consultar 	originales que debe realizar la aplicación y ejecutar otras totalmente 		distintas con la intención de acceder a la herramienta, obtener 	información de alguna de las tablas o borrar los datos almacenados, 	entre otras muchas cosas.\\
+
+
+Como consecuencias de estos ataques y dependiendo de los privilegios 	que tenga el usuario de la base de datos bajo el que se ejecutan las 	consultas, se podría acceder no sólo a las tablas relacionadas con la 	aplicación, sino también a otras tablas pertenecientes a otras bases de 	datos alojadas en ese mismo servidor.\\
+	
+	
+Lo comentado anteriormente es posible gracias a que el uso de ciertos 	caracteres en los campos de entrada de información por parte del 	usuario, ya sea mediante el uso de los campos de los formularios que son 	enviados al servidor mediante POST o bien por medio de los datos 	enviados mediante GET en las urls de las páginas web, posibilitan 	coordinar varias consultas SQL o ignorar el resto de la consulta, 	permitiendo al hacker ejecutar la consulta que elija, de ahí que sea 	necesario realizar un filtrado de esos datos enviados para evitar 	problemas.\\
+Podemos ver un esquema del ataque en \ref{fig:sql1}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{images/sql1.png}
+\caption{Cómo funciona un ataque SQL Injection.} \label{fig:sql1}
+\end{figure}
+
+Podemos seguir ciertos consejos para evitar los ataques o por lo menos minimizar el riesgo de los mismos:
+\begin{enumerate}
+\item Escapar los caracteres especiales utilizados en las consultas SQL: Añadir la barra invertida delante de las cadenas utilizadas en las consultas SQL para evitar que estas corrompan la consulta. Algunos de estos caracteres especiales que es aconsejable escapar son las comillas dobles o las comillas simples.\\
+En el caso de PHP podemos optar por la función mysql\_real\_scape\_string(), que toma como parámetro una cadena y la modifica evitando todos los caracteres especiales, devolviéndola totalmente segura para ser ejecutada dentro de la instrucción SQL.
+\item Delimitar los valores de las consultas: Aunque el valor de la consulta sea un entero, es aconsejable delimitarlo siempre entre comillas simples.
+\item Verificar siempre los datos que introduce el usuario: Si en una consulta estamos a la espera de recibir un entero, no confiemos en que sea así, sino que es aconsejable tomar medidas de seguridad y realizar la comprobación de que realmente se trata del tipo de dato que estamos esperando. Para realizar esto, los lenguajes de programación ofrecen funciones que realizan esta acción, como pueden ser ctype\_digit() para saber si es un número o ctype\_alpha().
+\item Asignar mínimos privilegios al usuario que conectará con la base de datos. El usuario que utilicemos para conectarnos a la base de datos desde nuestro código debe tener los privilegios justos para realizar las acciones que necesitemos.
+\end{enumerate}
+
+\subsection{Ataque MITM (Man In The Middle) \cite{10}}
+Es un tipo de ataque informático en el que el atacante tiene conexiones independientes con las víctimas y trasmite mensajes entre ellos, haciéndoles creer que están hablando directamente entre sí a través de una conexión privada, cuando en realidad toda la conversación es controlada por el atacante. El atacante debe ser capaz de interceptar todos los mensajes que van entre las dos víctimas e inyectar nuevos, lo cual es sencillo en muchas circunstancias (por ejemplo: un atacante dentro del rango de recepción de un punto de acceso de una red inalámbrica Wi-Fi sin encriptar, puede insertarse cómo un hombre en el medio).\\
+
+Este ataque puede tener éxito solo cuando el atacante puede hacerse pasar por 	cada punto final a satisfacción de la otra (esto es un ataque de autenticación mutua). La mayoría 	de 	los protocolos criptográficos incluyen alguna forma de autentificación de extremos específicamente para prevenir los ataques MITM. Por ejemplo: SSL autentifica al servidor utilizando una autoridad de certificación de confianza mutua. El esquema de este ataque se puede ver en las figuras \ref{fig:mitm1} \ref{fig:mitm2}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/mitm1.png}
+\caption{Cómo funciona un ataque MITM (I).} \label{fig:mitm1}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/mitm2.png}
+\caption{Cómo funciona un ataque MITM (II).} \label{fig:mitm2}
+\end{figure}
+La posibilidad de este ataque siendo un problema potencial de seguridad muy serio, incluso para muchos cripto-sistemas basados en clave pública.\\
+Existen varios tipos de defensa contra estos ataques MITM, estas defensas emplean técnicas de autenticación basadas en:
+\begin{enumerate}
+\item Infraestructura de claves públicas
+\item Autenticación mutua fuerte.
+\item El examen de latencia, como con mucho los cálculos de la función hash criptográfica que conducen a decenas de segundos, si ambas partes toman normalmente 20 segundos y el cálculo de 60 segundos para llegar a cada parte, esto puede indicar a un tercero en la comunicación.
+\item Un segundo canal de verificación (seguro): por ejemplo el protocolo HTTPS (SSL).
+\item Pads(almohadillas) de una sola vez son inmunes a los ataques MITM, en el supuesto caso de la seguridad y la confianza de la plataforma de una sola vez.
+\end{enumerate}
+
+\section{Ejemplos prácticos de ataques cibernéticos}
+Para realizar los ataques, hemos usado el Sistema Operativo Kali Linux, el cual posee una serie de herramientas preinstaladas para la auditoría y seguridad de sistemas informáticos.
+\subsection{Ejemplo práctico ataque DoS}
+Para este ataque, hemos usado la herramienta para pentesting Metasploit. Ésta nos permite mandar muchas peticiones SYN (recordemos el triple handshaking de TCP) haciendo que el servidor reserve recursos para todas las peticiones y quedando a la espera porque nunca se enviará el \textit{ACK}. Usamos los comandos que se muestran en la siguiente figura \ref{fig:ddos1atack}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{images/ddos1.jpeg}
+\caption{Comandos Metasploit.} \label{fig:ddos1atack}
+\end{figure}
+El modulo \textit{auxiliary} contiene  herramientas externas como pueden ser escáners de vulnerabilidades, sniffers, etc. En este caso usaremos \textit{synflood}. Con \textit{set RHOST 192.168.1.236}, indicamos la ip de nuestra víctima. Por último, ``explotamos'' el ataque para que se haga efectivo.\\
+El escenario del ataque es el siguiente:
+Hay un servidor \textit{ XAMPP}, en el sistema operativo Windows 10, cuya IP es 192.168.1.236, la cual suponemos en la misma red que nuestra máquina atacante. En la siguiente captura, podemos observar la página de inicio del servidor, pero cuando realizamos el ataque, la aplicación que nos permite configurar el servidor falla, y el servidor cae \ref{fig:ddos2atack}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/ddos2.jpeg}
+\caption{Servidor caído.} \label{fig:ddos2atack}
+\end{figure}
+
+\subsection{Ejemplo práctico SQL Injection}
+Para este caso, hemos usado la herramienta \textit{SQLMap}, la cual nos permite descubrir las vulnerabilidades y obtener los datos de las base de datos. Se basa en realizar consultas a las que la base de datos puede ser vulnerable por no haberse realizado una correcta validación de las mismas.\\
+
+En la referencia \cite{14} podemos consultar una base de datos con los distintos tipos de vulnerabilidades que pueden surgir en las páginas web. En nuestro caso hemos usado 'inurl:item\_id='. Si buscamos esto en Google, observamos qué páginas web pueden ser vulnerables. Escogeremos \textit{www.dcmsee.org}. Para comprobar si realmente la página es vulnerable, entramos en el link, y al final de este ponemos una comilla simple. Si es vulnerable, saldrá un error SQL \ref{fig:errorinjeccion}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.20]{images/errorinjeccion.png}
+\caption{Error SQL.} \label{fig:errorinjeccion}
+\end{figure}
+
+Una vez que sabemos que la página es vulnerable, empezaremos nuestro ataque: introducimos el comando \textit{sqlmap -u http://www.dcmsee.org/en/\\
+countries/?item\_id=5 --dbs}. Este comando, nos devolverá las base de datos disponibles \ref{fig:resultadosqlmap2}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/resultadosqlmap2.png}
+\caption{Bases de datos disponibles.} \label{fig:resultadosqlmap2}
+\end{figure}
+
+En nuestro caso, hay dos disponibles: \textit{dmcseems} e \textit{information\_schema}. Intuimos que la información de los posibles usuarios estará en la primera de ellas, así que lanzamos el comando \textit{sqlmap -u http://www.dcmsee.org/en/\\
+countries/?item\_id=5 -D dmcseems --tables}. Así obtenemos las tablas de esta base de datos. Hay una tabla que nos llaman la atención: \textit{site\_users}, así que el siguiente paso será ver que hay en ella, para ello introducimos el comando  \textit{sqlmap -u http://www.dcmsee.org/en/countries/?item\_id=5 -D dmcseems --tables -T site\_users --columns} y el resultado es el siguiente \ref{fig:tablausuarios2}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.15]{images/tablausuarios2.png}
+\caption{Tabla \textit{site\_users}.} \label{fig:tablausuarios2}
+\end{figure}
+De esta tabla, podemos escoger las columnas que queramos, en nuestro caso para ver que el ataque ha sido efectivo cogeremos \textit{password} y \textit{username}. Para ello introducimos el comando \textit{sqlmap -u http://www.dcmsee.org/en/countries/?item\_id=5  -D dmcseems -T site\_users -C username --dump} para los nombres de usuario y \textit{sqlmap -u http://www.dcmsee.org/en/countries/?item\_id=5  -D dmcseems -T site\_users -C username --dump} para las contraseñas. Si tenemos suerte, puede que las contraseñas no estén encriptadas. En nuestro caso, estaban encriptadas, pero el propio \textit{SQLMAP} ofrece un algoritmo de fuerza bruta para desencriptar. Así pues, obtenemos el nombre de usuario y contraseña de alguno de ellos y lo probamos \ref{fig:loginmarina1}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.55]{images/loginmarina1.png}
+\caption{Comprobando contraseña.} \label{fig:loginmarina1}
+\end{figure}
+Cuando le damos a \textit{Members Section} (donde salía el menú del login) de nuevo vemos que nos hemos identificado correctamente e incluso podemos modificar la contraseña \ref{fig:loginmarina2}:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.55]{images/loginmarina2.png}
+\caption{Comprobando contraseña.} \label{fig:loginmarina2}
+\end{figure}
+
+\subsection{Ejemplo práctico ataque MITM}
+Este ataque se puede hacer en pocos servidores, pero se pretende mostrar que el uso de las conexiones seguras como por ejemplo a través del protocolo \textit{HTTPS} son imprescindibles para mantener nuestro servidor seguro.\\
+
+En este caso, usaremos la herramienta \textit{arpspoof} y \textit{Wireshark}. Con la primera de ellas, lo que haremos será un ataque al protocolo ARP, el cual se encarga de traducir la ip de un dispositivo a su \textit{MAC}. Para ello, falsearemos los paquetes IP, redirigiendo los paquetes de la víctima hacia nuestra máquina atacante, y una vez que pasa por nuestras manos, los reencaminaremos al router. También haremos esta operación en sentido inverso, es decir, el router\footnote{Cuando se dice que el dispositivo es un router no tiene por qué ser un router, podría ser cualquier otro dispositivo con el que se comunicase la víctima, pero en este caso, lo que obtendremos será los datos de usuario de una página, así que será el router.} nos mandará los paquetes que se correspondan con la IP de la víctima, y nuestra máquina los reencaminará hacia la víctima. Todo el proceso lo auditaremos con \textit{Wireshark} para obtener los datos sensibles. \\
+
+Nuestro escenario es el siguiente:
+\begin{enumerate}
+\item IP víctima: 192.168.1.46, MAC víctima: 90:48:9A:3E:64:37
+\item IP router: 192.168.1.1, MAC víctima: 54:67:51:59:FE:90
+\end{enumerate}
+
+Así pues, el primer paso será falsear los paquetes, modificando las MAC tal y como se ha explicado anteriormente. El proceso se muestra en la siguiente figura \ref{fig:arpspoofing}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.25]{images/arpspoofing.png}
+\caption{Comando arpspoofing.} \label{fig:arpspoofing}
+\end{figure}
+Una vez hecho esto, tendremos que esperar a que el usuario ingrese en una página con el protocolo \textit{HTTP}. Nosotros estaremos observando con \textit{Wireshark} la actividad del usuario. Por ejemplo, podemos obtener el usuario y la contraseña de un sitio web \ref{fig:capturaHTTP} \ref{fig:login}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.2]{images/capturaHTTP.png}
+\caption{Captura Wireshark (I).} \label{fig:capturaHTTP}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{images/login.png}
+\caption{Captura Wireshark (II).} \label{fig:login}
+\end{figure}
+
+%---------------------------.bib-----------------1-----------
+\clearpage
+\bibliography{citas} %archivo citas.bib que contiene las entradas
+\bibliographystyle{plain} % hay varias formas de citar
+
+\end{document}
