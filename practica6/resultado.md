@@ -58,3 +58,7 @@ Lo que significa que están restaurándose los datos de nuevo. Si queremos ver e
 Podemos comprobar que se encuentra finalizado el proceso de restauración:
 
 ![Restaurando RAID](13.png "Restaurando RAID")
+
+Por último, tras reiniciar el sistema, vemos que se monta automáticamente el dispositivo `/dev/md0` como `/dev/md127`:
+
+![RAID después del reinicio](14.png "RAID después del reinicio")
